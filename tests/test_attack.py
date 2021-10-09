@@ -3,7 +3,7 @@ from opyrator.objects import Attack, AttackVersion, AttackMetadata
 
 
 @pytest.fixture
-def example_attack_dict():
+def example_attack_dict(example_attack_metadata_dict):
     return {"id": "1d83bce0-5454-4600-ae2d-e38ea4e56804",
             "name": "Get system info",
             "description": "This discovers ...",
@@ -17,15 +17,7 @@ def example_attack_dict():
                     "psh": {"command": "foo"}
                 }
             },
-            "metadata": {
-                "version": 1,
-                "authors": ["khyberspache"],
-                "tags": ["ransomware", "apt29"],
-                "enabled": True,
-                "checksum": "99bcaf9591f16bc5ed6275a651f39a5e7878e1e00ad675fc7c150bfe335908fa",
-                "release_date": "2020-11-05",
-                "license": "professional"
-            },
+            "metadata": example_attack_metadata_dict,
             "modified": False,
             "isModified": False}
 
