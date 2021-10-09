@@ -303,7 +303,8 @@ class Plugin(AbstractOperator):
 
         self.name: str = ""
         self.description: str = ""
-        self.custom: Dict[str, str] = {}
+        self.version: str = ""
+        self.native: bool
 
 
 class Platform(AbstractOperator):
