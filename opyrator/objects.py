@@ -45,8 +45,9 @@ class Agent(AbstractOperator):
         self.history: List[str] = []
         self.queue: List[str] = []
         self.links: List[Link] = []
+        self.executing: Dict[str, str] = {}
         self.facts: Dict[str, List[Fact]] = {}
-        self.locked: bool
+        self.locked: bool = False
         self.location: str = ""
         self.target: str = ""
         self.hostname: str = ""
@@ -57,7 +58,9 @@ class Agent(AbstractOperator):
         self.interval: int
         self.platform: str = ""
         self.executors: List[str] = []
-        self.agentRange: str = ""
+        self.range: str = ""
+        self.touched: str = ""
+        self.encryptor: str = ""
         self.sleep: int
         self.automaticFacts: List[Fact] = []
 
@@ -91,7 +94,7 @@ class AttackVersion(AbstractOperator):
         self.version: int
         self.checksum: str = ""
         self.license: str = ""
-        self.releaseDate: str = ""
+        self.release_date: str = ""
 
 
 class AttackMetadata(AbstractOperator):
@@ -104,7 +107,7 @@ class AttackMetadata(AbstractOperator):
         self.authors: List[str] = []
         self.enabled: bool
         self.checksum: str = ""
-        self.releaseDate: str = ""
+        self.release_date: str = ""
         self.latest: AttackVersion
 
 
