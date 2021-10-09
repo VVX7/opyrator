@@ -3,14 +3,15 @@ from opyrator.objects import InternalSettings
 
 
 @pytest.fixture
-def example_internal_settings_dict():
+def example_internal_settings_dict(example_account_dict, example_workspace_dict):
     return {
-        "local": example_workspace_dict(),
+        "local": example_workspace_dict,
         "identity": "123",
-        "account": example_account_dict()
+        "account": example_account_dict
     }
 
 
+@pytest.fixture
 def example_account_dict():
     return {
         "email": "foo@bar.baz",
@@ -21,17 +22,18 @@ def example_account_dict():
     }
 
 
-def example_workspace_dict():
+@pytest.fixture
+def example_workspace_dict(example_workspace_keys_dict, example_workspace_publishers_dict):
     return {
         "workspace": "login.prelude.org",
-        "keys": example_workspace_keys_dict(),
+        "keys": example_workspace_keys_dict,
         "server": "127.0.0.1",
         "tcp_port": "2323",
         "udp_port": "4545",
 
         "http_port": "3391",
         "shell_port": "3007",
-        "publishers": example_workspace_publishers_dict(),
+        "publishers": example_workspace_publishers_dict,
         "redirectors": {},
         "encryptors": {
             "default": True,
@@ -42,6 +44,7 @@ def example_workspace_dict():
     }
 
 
+@pytest.fixture
 def example_workspace_keys_dict():
     return {
         "agent": ["foobarkey"],
@@ -49,6 +52,7 @@ def example_workspace_keys_dict():
     }
 
 
+@pytest.fixture
 def example_workspace_publishers_dict():
     return {
         "local": True,
