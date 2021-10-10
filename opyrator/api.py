@@ -38,7 +38,7 @@ class API:
         elif data:
             if isinstance(data, dict):
                 data = {k: v for k, v in data.items() if v is not None}
-            d = json.dumps(data)
+            d = data
 
         req = requests.Request(method, url, data=d, params=params)
 
